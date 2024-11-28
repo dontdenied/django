@@ -10,7 +10,7 @@ class ContatoForm(forms.Form):
 
 
 class ProdutoForm(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Produto
         fields = ['nome', 'preco', 'estoque']
         labels = {'nome': 'Nome do produto', 
@@ -18,17 +18,17 @@ class ProdutoForm(forms.ModelForm):
                   'estoque': 'Estoque',
                   }
     
-    def clean_nome(self):
-        nome = self.cleaned_data.get('nome')
-        if len(nome) < 3:
-            raise forms.ValidationError('o nome deve ter no mínimo 3 caracteres')
-        return nome
+    # def clean_nome(self):
+    #     nome = self.cleaned_data.get('nome')
+    #     if len(nome) < 3:
+    #         raise forms.ValidationError('o nome deve ter no mínimo 3 caracteres')
+    #     return nome
     
-    def clean_estoque(self):
-        estoque = self.cleaned_data.get('estoque')
-        if estoque == 0:
-            raise forms.ValidationError('estoque vazio')
-        return estoque
+    # def clean_estoque(self):
+    #     estoque = self.cleaned_data.get('estoque')
+    #     if estoque == 0:
+    #         raise forms.ValidationError('estoque vazio')
+    #     return estoque
         
 
 
